@@ -1,0 +1,20 @@
+class Solution {
+    public String removeDuplicates(String s) {
+        StringBuilder sb =new StringBuilder(s);
+        int start=0;
+        int next=1;
+
+        while(next < sb.length()){
+            if(sb.charAt(start)==sb.charAt(next)){
+             sb.deleteCharAt(next);
+             sb.deleteCharAt(start);
+             start=Math.max(0,start-1);
+             next=start+1;
+            }else{
+                start++;
+                next++;
+            }
+        }
+    return sb.toString();    
+    }
+}
