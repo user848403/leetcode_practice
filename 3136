@@ -1,0 +1,20 @@
+class Solution {
+    public boolean isValid(String word) {
+        String v="aeiouAEIOU";
+        int vowel=0;
+        int consonant=0;
+        if(word.length()<3) return false;
+        for(char ch : word.toCharArray()){
+            if(Character.isDigit(ch)) continue;
+            if(Character.isLetter(ch)){
+                if(v.indexOf(ch)>=0) ++vowel;
+                else{
+                    ++consonant;
+                }
+            }else{
+                return false;
+            }
+        }
+        return vowel>0 && consonant>0;
+    }
+}
